@@ -1,19 +1,23 @@
-import type { MetaFunction } from "@remix-run/node";
-import { Welcome } from "~/components/Welcome/Welcome";
-import { ColorSchemeToggle } from "~/components/ColorSchemeToggle/ColorSchemeToggle";
+import {LoaderFunctionArgs, MetaFunction, redirect} from "@remix-run/node";
+
+
+export async function loader({request}:LoaderFunctionArgs){
+  //const user = await authenticator.isAuthenticated(request);
+
+ // if(!user) return redirect("/login");
+  return redirect('/app/home');
+
+}
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Mantine Remix App" },
-    { name: "description", content: "Welcome to Mantine!" },
+    { title: "Polly Portal v2" },
+    { name: "description", content: "Polly Portal v2" },
   ];
 };
 
 export default function Index() {
-  return (
-    <div>
-      <Welcome />
-      <ColorSchemeToggle />
-    </div>
+  return(
+      <></>
   );
 }
